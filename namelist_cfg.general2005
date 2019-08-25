@@ -1,0 +1,25 @@
+!!>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+!! NEMO/OPA  : ANHA12 Configuration namelist to overwrite reference dynamical namelist
+!!>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+!-----------------------------------------------------------------------
+&namrun        !   parameters of the run
+!-----------------------------------------------------------------------
+   cn_exp      =  "ANHA12_EXH006"   !  experience name
+   nn_it000    =    350401  !  first time step
+   nn_itend    =    525600 !  last  time step
+   nn_date0    =  20050101 !  date at nit_000
+   nn_leapy    =       0   !  Leap year calendar (1) or not (0)
+   nn_istate   =        0
+   nn_stock    =    14400  !  frequency of creation of a restart file (approximately every month)
+   nn_write    =    2400   !  frequency of write in the output file   (modulo referenced to nn_it000)
+   ln_rstart   = .true.   !  start from rest (F) or from a restart file (T)
+
+   ln_clobber  = .true.    !  clobber (overwrite) an existing file
+/
+!-----------------------------------------------------------------------
+&namtsd    !   data : Temperature  & Salinity
+!-----------------------------------------------------------------------
+   cn_dir        = './'      !  root directory for the location of the runoff files
+   ln_tsd_init   = .false.   !  Initialisation of ocean T & S with T &S input data (T) or not (F)
+   ln_tsd_tradmp = .false.   !  damping of ocean T & S toward T &S input data (T) or not (F)
+/
