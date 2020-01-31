@@ -1,0 +1,87 @@
+config name: ANHA12_DYNA
+MPI decomposition: 12x12 # 12x12
+run_id: ref-2012
+walltime: 10:30:00
+email: brogalla@eoas.ubc.ca
+account: rrg-allen
+
+paths:
+  NEMO code config: /project/rrg-allen/$USER/GEOTRACES/NEMO-3.6-code/NEMOGCM/CONFIG/
+  XIOS: /project/rrg-allen/$USER/GEOTRACES/XIOS-2/
+  runs directory: $SCRATCH/
+
+grid:
+  coordinates: /project/rrg-allen/$USER/GEOTRACES/CAA_ANHA12/coordinates/ANHA12_coordinates.nc
+  bathymetry: /project/rrg-allen/$USER/GEOTRACES/CAA_ANHA12/bathymetry/ANHA12_meshmask.nc
+
+forcing:
+  dynamics_fields:
+      link to: /project/rrg-allen/$USER/GEOTRACES/data/ANHA12/
+  runoff_fields:
+      link to: /project/rrg-allen/$USER/GEOTRACES/data/runoff/
+  open_boundaries:
+      link to: /project/rrg-allen/$USER/GEOTRACES/data/open_boundaries/
+  river_input.nc:
+      link to: /project/rrg-allen/$USER/GEOTRACES/data/runoff/river_input-base-case.nc
+  Mn_ini.nc:
+      link to: /project/rrg-allen/$USER/GEOTRACES/data/IC/Mn_ini.nc
+  dust_fields: 
+      link to: /project/rrg-allen/$USER/GEOTRACES/data/sources/atmosphere/
+  ice_fields:
+      link to: /project/rrg-allen/$USER/GEOTRACES/data/sources/ice/
+  bio_fields:
+      link to: /project/rrg-allen/$USER/GEOTRACES/data/sources/bio/
+  reduction_forcing:
+      link to: /project/rrg-allen/$USER/GEOTRACES/data/sources/reduction/
+  resus_rate.nc:
+      link to: /project/rrg-allen/$USER/GEOTRACES/data/sources/resuspension_rate.nc  
+  mask.nc:
+      link to: /project/rrg-allen/$USER/GEOTRACES/CAA_ANHA12/bathymetry/ANHA12_mask.nc
+  mesh.nc:
+      link to: /project/rrg-allen/$USER/GEOTRACES/CAA_ANHA12/bathymetry/ANHA12_mesh1.nc
+
+restart:
+  restart.nc: $SCRATCH/ref-2011/ANHA12_EXH006_01576800_restart_trc.nc
+  restart_trc.nc: $SCRATCH/ref-2011/ANHA12_EXH006_01576800_restart_trc.nc
+
+namelists:
+  namelist_cfg:
+    - /project/rrg-allen/$USER/GEOTRACES/caa_runs/namelist_cfg.general2012
+    - /project/rrg-allen/$USER/GEOTRACES/caa_runs/namelist_cfg.domain_Mn
+    - /project/rrg-allen/$USER/GEOTRACES/NEMO-3.6-code/NEMOGCM/CONFIG/ANHA12_DYNA/EXP00/namelist_cfg.dynamics
+    - /project/rrg-allen/$USER/GEOTRACES/NEMO-3.6-code/NEMOGCM/CONFIG/ANHA12_DYNA/EXP00/namelist_cfg.offline
+    - /project/rrg-allen/$USER/GEOTRACES/caa_runs/namelist_cfg.boundaries_Mn
+    - /project/rrg-allen/$USER/GEOTRACES/NEMO-3.6-code/NEMOGCM/CONFIG/ANHA12_DYNA/EXP00/namelist_cfg.surface
+    - /project/rrg-allen/$USER/GEOTRACES/NEMO-3.6-code/NEMOGCM/CONFIG/ANHA12_DYNA/EXP00/namelist_cfg.rivers
+    - /project/rrg-allen/$USER/GEOTRACES/NEMO-3.6-code/NEMOGCM/CONFIG/ANHA12_DYNA/EXP00/namelist_cfg.bottom
+    - /project/rrg-allen/$USER/GEOTRACES/NEMO-3.6-code/NEMOGCM/CONFIG/ANHA12_DYNA/EXP00/namelist_cfg.tracers
+    - /project/rrg-allen/$USER/GEOTRACES/NEMO-3.6-code/NEMOGCM/CONFIG/ANHA12_DYNA/EXP00/namelist_cfg.compute
+  namelist_top_cfg:
+    - /project/rrg-allen/$USER/GEOTRACES/caa_runs/namelist_top_cfg.general-restart
+    - /project/rrg-allen/$USER/GEOTRACES/NEMO-3.6-code/NEMOGCM/CONFIG/ANHA12_DYNA/EXP00/namelist_top_cfg.mn
+  namelist_mn:
+    - /project/rrg-allen/$USER/GEOTRACES/NEMO-3.6-code/NEMOGCM/CONFIG/ANHA12_DYNA/EXP00/namelist_mn.switches
+    - /project/rrg-allen/$USER/GEOTRACES/NEMO-3.6-code/NEMOGCM/CONFIG/ANHA12_DYNA/EXP00/namelist_mn.forcing
+    - /project/rrg-allen/$USER/GEOTRACES/NEMO-3.6-code/NEMOGCM/CONFIG/ANHA12_DYNA/EXP00/namelist_mn.constants
+  namelist_ref:
+    - /project/rrg-allen/$USER/GEOTRACES/NEMO-3.6-code/NEMOGCM/CONFIG/ANHA12_DYNA/EXP00/namelist_ref
+
+output:
+  iodefs: /project/rrg-allen/$USER/GEOTRACES/NEMO-3.6-code/NEMOGCM/CONFIG/ANHA12_DYNA/EXP00/iodef.xml
+  filedefs: /project/rrg-allen/$USER/GEOTRACES/caa_runs/file_def-mn.xml
+  domaindefs: /project/rrg-allen/$USER/GEOTRACES/NEMO-3.6-code/NEMOGCM/CONFIG/ANHA12_DYNA/EXP00/domain_def.xml
+  fielddefs: /project/rrg-allen/$USER/GEOTRACES/NEMO-3.6-code/NEMOGCM/CONFIG/ANHA12_DYNA/EXP00/field_def.xml
+  separate XIOS server: True
+  XIOS servers: 1
+
+#vcs revisions:
+#  hg:
+#    - /project/rrg-allen/$USER/GEOTRACES/NEMO-3.6-code/
+#    - /project/rrg-allen/$USER/GEOTRACES/XIOS/
+#    - /project/rrg-allen/$USER/GEOTRACES/XIOS-ARCH/
+#    - /project/rrg-allen/$USER/GEOTRACES/NEMO-Cmd/
+
+modules to load:  
+  - netcdf-fortran-mpi/4.4.4
+  - python/3.7.0
+
