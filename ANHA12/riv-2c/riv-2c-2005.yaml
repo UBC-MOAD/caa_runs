@@ -12,7 +12,7 @@ paths:
 
 grid:
   coordinates: $PROJECT/$USER/GEOTRACES/CAA_ANHA12/coordinates/ANHA12_coordinates.nc
-  bathymetry: $PROJECT/$USER/GEOTRACES/CAA_ANHA12/bathymetry/ANHA12_meshmask.nc
+  bathymetry: $PROJECT/$USER/GEOTRACES/caa_runs/ANHA12/ANHA12_meshmask.nc
 
 forcing:
   dynamics_fields:
@@ -32,9 +32,9 @@ forcing:
   bio_fields:
       link to: $PROJECT/$USER/GEOTRACES/data/sources/bio/
   mask.nc:
-      link to: $PROJECT/$USER/GEOTRACES/CAA_ANHA12/bathymetry/ANHA12_mask.nc
+      link to: $PROJECT/$USER/GEOTRACES/caa_runs/ANHA12/ANHA12_mask.nc
   mesh.nc:
-      link to: $PROJECT/$USER/GEOTRACES/CAA_ANHA12/bathymetry/ANHA12_mesh1.nc
+      link to: $PROJECT/$USER/GEOTRACES/caa_runs/ANHA12/ANHA12_mesh1.nc
 
 restart:
   restart.nc: $SCRATCH/riv-2c-2004/ANHA12_EXH006_00175200_restart_trc.nc

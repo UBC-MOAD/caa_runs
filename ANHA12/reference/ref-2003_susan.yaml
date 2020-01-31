@@ -12,7 +12,7 @@ paths:
 
 grid:
   coordinates: /project/rrg-allen/brogalla/GEOTRACES/CAA_ANHA12/coordinates/ANHA12_coordinates.nc
-  bathymetry: /project/rrg-allen/brogalla/GEOTRACES/CAA_ANHA12/bathymetry/ANHA12_meshmask.nc
+  bathymetry: /project/rrg-allen/brogalla/GEOTRACES/caa_runs/ANHA12/ANHA12_meshmask.nc
 
 forcing:
   dynamics_fields:
@@ -32,9 +32,9 @@ forcing:
   bio_fields:
       link to: /project/rrg-allen/brogalla/GEOTRACES/data/sources/bio/
   mask.nc:
-      link to: /project/rrg-allen/brogalla/GEOTRACES/CAA_ANHA12/bathymetry/ANHA12_mask.nc
+      link to: /project/rrg-allen/brogalla/GEOTRACES/caa_runs/ANHA12/ANHA12_mask.nc
   mesh.nc:
-      link to: /project/rrg-allen/brogalla/GEOTRACES/CAA_ANHA12/bathymetry/ANHA12_mesh1.nc
+      link to: /project/rrg-allen/brogalla/GEOTRACES/caa_runs/ANHA12/ANHA12_mesh1.nc
 
 restart:
   restart.nc: /scratch/brogalla/spin-up3/ANHA12_EXH006_00175200_restart_trc.nc

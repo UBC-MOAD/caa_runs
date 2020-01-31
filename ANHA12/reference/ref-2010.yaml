@@ -12,7 +12,7 @@ paths:
 
 grid:
   coordinates: /project/rrg-allen/$USER/GEOTRACES/CAA_ANHA12/coordinates/ANHA12_coordinates.nc
-  bathymetry: /project/rrg-allen/$USER/GEOTRACES/CAA_ANHA12/bathymetry/ANHA12_meshmask.nc
+  bathymetry: /project/rrg-allen/$USER/GEOTRACES/caa_runs/ANHA12/ANHA12_meshmask.nc
 
 forcing:
   dynamics_fields:
@@ -36,9 +36,9 @@ forcing:
   resus_rate.nc:
       link to: /project/rrg-allen/$USER/GEOTRACES/data/sources/resuspension_rate.nc
   mask.nc:
-      link to: /project/rrg-allen/$USER/GEOTRACES/CAA_ANHA12/bathymetry/ANHA12_mask.nc
+      link to: /project/rrg-allen/$USER/GEOTRACES/caa_runs/ANHA12/ANHA12_mask.nc
   mesh.nc:
-      link to: /project/rrg-allen/$USER/GEOTRACES/CAA_ANHA12/bathymetry/ANHA12_mesh1.nc
+      link to: /project/rrg-allen/$USER/GEOTRACES/caa_runs/ANHA12/ANHA12_mesh1.nc
 
 restart:
   restart.nc: $SCRATCH/ref-2009/ANHA12_EXH006_01226400_restart_trc.nc
