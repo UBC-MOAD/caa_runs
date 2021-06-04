@@ -1,0 +1,39 @@
+!-----------------------------------------------------------------------
+&namtra_adv    !   advection scheme for tracer
+!-----------------------------------------------------------------------
+   ln_traadv_cen2   =  .false.   !  2nd order centered scheme
+   ln_traadv_tvd    =  .true.    !  TVD scheme
+   ln_traadv_muscl  =  .false.   !  MUSCL scheme
+   ln_traadv_muscl2 =  .false.   !  MUSCL2 scheme + cen2 at boundaries
+   ln_traadv_ubs    =  .false.   !  UBS scheme
+   ln_traadv_qck    =  .false.   !  QUICKEST scheme
+   ln_traadv_msc_ups=  .false.   !  use upstream scheme within muscl
+/
+!----------------------------------------------------------------------------------
+&namtra_ldf    !   lateral diffusion scheme for tracers
+!----------------------------------------------------------------------------------
+   rn_aeiv_0        =     0.    !  eddy induced velocity coefficient [m2/s]
+   rn_aht_0         =   50.0    !  horizontal eddy diffusivity for tracers [m2/s]
+/
+!-----------------------------------------------------------------------
+&namtra_dmp    !   tracer: T & S newtonian damping
+!-----------------------------------------------------------------------
+   ln_tradmp   =  .false.  !  add a damping termn (T) or not (F)
+   nn_hdmp     =  -2       !  horizontal shape customization
+   rn_surf     =   50.     !  surface time scale of damping   [days]
+   rn_bot      =  360.     !  bottom  time scale of damping   [days]
+   rn_dep      =  800.     !  depth of transition between rn_surf and rn_bot [meters]
+   nn_file     =    0      !  create a damping.coeff NetCDF file (=1) or not (=0)
+   ln_dmpmask  = .false.   !  Read dmp_mask.nc file when T (between 0 and 1, var: wdmp)
+   rn_timsk    =  730.     !  Time scale used for dmp_mask
+   jrelax_s    =  60       !  sponge layer width (number of grids, south)
+   jrelax_n    =  30       !  sponge layer width (number of grids, north)
+   jrelax_e    =  0        !  sponge layer width (number of grids, east)
+   jrelax_w    =  0        !  sponge layer width (number of grids, west)
+   ln_buffer_s = .true.    !  enable sponge layer (south)
+   ln_buffer_n = .true.    !  enable sponge layer (north)
+   ln_buffer_e = .false.   !  enable sponge layer (east)
+   ln_buffer_w = .false.   !  enable sponge layer (west)
+   zdmpmax     = 30.0      !  max restoring time scale for sponge layer
+   zdmpmin     = 1.0       !  min restoring time scale for sponge layer
+/

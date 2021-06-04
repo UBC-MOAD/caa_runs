@@ -1,0 +1,19 @@
+<domain_definition>
+	<domain_group id="grid_T">
+		<domain id="grid_T" long_name="grid T"/>
+		<domain id="test_T" domain_ref="grid_T"> </domain>
+        </domain_group>
+	<domain_group id="grid_U">
+		<domain id="grid_U" long_name="grid U"/>
+		<domain id="test_U" domain_ref="grid_U"> </domain>
+	</domain_group>      
+        <domain_group id="grid_V">
+		<domain id="grid_V" long_name="grid V"/>
+		<domain id="test_V" domain_ref="grid_V"> </domain>
+     	</domain_group>
+	<domain_group id="grid_W">
+		<domain id="grid_W" long_name="grid W"/> 
+		<domain id="test_W" domain_ref="grid_W"> </domain>
+     	</domain_group> 
+</domain_definition>    
+ 

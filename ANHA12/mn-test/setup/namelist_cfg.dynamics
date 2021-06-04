@@ -1,0 +1,71 @@
+!-----------------------------------------------------------------------
+&nameos        !   ocean physical parameters
+!-----------------------------------------------------------------------
+   nn_eos      =  0       !  type of equation of state and Brunt-Vaisala frequency
+                                 !  =-1, TEOS-10
+                                 !  = 0, EOS-80
+                                 !  = 1, S-EOS   (simplified eos)
+   ln_useCT    = .false.  ! use of Conservative Temp. ==> surface CT converted in Pot. Temp. in sbcssm
+   !                             !
+   !                      ! S-EOS coefficients :
+   !                             !  rd(T,S,Z)*rau0 = -a0*(1+.5*lambda*dT+mu*Z+nu*dS)*dT+b0*dS
+   rn_a0       =  2.0520e-1      !  thermal expension coefficient (nn_eos= 1)
+   rn_b0       =  7.9002e-1      !  saline  expension coefficient (nn_eos= 1)
+   rn_lambda1  =  5.9520e-2      !  cabbeling coeff in T^2  (=0 for linear eos)
+   rn_lambda2  =  7.4914e-4      !  cabbeling coeff in S^2  (=0 for linear eos)
+   rn_mu1      =  1.4970e-4      !  thermobaric coeff. in T (=0 for linear eos)
+   rn_mu2      =  1.1090e-5      !  thermobaric coeff. in S (=0 for linear eos)
+   rn_nu       =  2.4341e-3      !  cabbeling coeff in T*S  (=0 for linear eos)
+/
+!-----------------------------------------------------------------------
+&namdyn_vor    !   option of physics/algorithm (not control by CPP keys)
+!-----------------------------------------------------------------------
+   ln_dynvor_ene = .false.  !   energy    conserving scheme
+   ln_dynvor_ens = .false.  !   enstrophy conserving scheme
+   ln_dynvor_een = .true.   !   energy & enstrophy scheme
+/
+!-----------------------------------------------------------------------
+&namdyn_hpg    !   Hydrostatic pressure gradient option
+!-----------------------------------------------------------------------
+   ln_hpg_zco  = .false.    !  z-coordinate - full steps
+   ln_hpg_zps  = .true.     !  z-coordinate - partial steps (interpolation)
+   ln_dynhpg_imp = .true.   !  time stepping: semi-implicit time scheme  (T)
+                                 !           centered      time scheme  (F)
+
+/
+!-----------------------------------------------------------------------
+&namdyn_ldf    !   lateral diffusion on momentum
+!-----------------------------------------------------------------------
+   !                       !  Type of the operator :
+   ln_dynldf_lap    =  .false.  !  laplacian operator
+   ln_dynldf_bilap  =  .true.   !  bilaplacian operator
+   rn_ahm_0_lap     = 0.0       !  horizontal laplacian eddy viscosity   [m2/s]
+   rn_ahmb_0        =   50.0    !  background eddy viscosity for ldf_iso [m2/s]
+   rn_ahm_0_blp     =  -1.0e10  !  horizontal bilaplacian eddy viscosity [m4/s]
+/
+!-----------------------------------------------------------------------
+&namzdf        !   vertical physics
+!-----------------------------------------------------------------------
+   rn_avm0     =   1.e-4   !  vertical eddy viscosity   [m2/s]          (background Kz if not "key_zdfcst")
+   rn_avt0     =   1.e-5   !  vertical eddy diffusivity [m2/s]          (background Kz if not "key_zdfcst")
+   nn_havtb    =    1      !  horizontal shape for avtb (=1) or not (=0)
+   nn_evdm     =    1      !  evd apply on tracer (=0) or on tracer and momentum (=1)
+   rn_avevd    =  10.      !  evd mixing coefficient [m2/s]
+
+/
+!-----------------------------------------------------------------------
+&namzdf_tke    !   turbulent eddy kinetic dependent vertical diffusion  ("key_zdftke")
+!-----------------------------------------------------------------------
+   rn_ebb      =   60      !  coef. of the surface input of tke (67.83 now usual value)
+   nn_mxl      =   3       !  first vertical derivative of mixing length
+   rn_mxl0     = 0.01      !  surface buoyancy length scale minimum value
+   nn_etau     =   1       !  penetration of tke below the mixed layer (ML) due to internal & intertial waves
+/
+!-----------------------------------------------------------------------
+&namzdf_gls                !   GLS vertical diffusion                   ("key_zdfgls")
+!-----------------------------------------------------------------------
+   rn_emin       = 1.e-6   !   minimum value of e   [m2/s2]
+   rn_clim_galp  = 0.53    !   galperin limit
+   rn_charn      = 100000. !   Charnock constant for wb induced roughness length
+/
+

@@ -1,0 +1,25 @@
+!-----------------------------------------------------------------------
+&namsol        !   elliptic solver / island / free surface
+!-----------------------------------------------------------------------
+   nn_solv     =      1    !%  elliptic solver: =1 preconditioned conjugate gradient (pcg)
+   nn_nmax     =    2800    !%  maximum of iterations for the SOR solver
+   rn_sor      =  1.973     !%  optimal coefficient for SOR solver (to be adjusted with the domain)
+/
+!-----------------------------------------------------------------------
+&namnc4        !   netcdf4 chunking and compression settings            ("key_netcdf4")
+!-----------------------------------------------------------------------
+   nn_nchunks_i=   1       !%  number of chunks in i-dimension
+   nn_nchunks_j=   1       !%  number of chunks in j-dimension
+   nn_nchunks_k=   1       !%  number of chunks in k-dimension
+/
+!-----------------------------------------------------------------------
+&nammpp        !   Massively Parallel Processing                        ("key_mpp_mpi)
+!-----------------------------------------------------------------------
+   cn_mpi_send =  'I'      !  mpi send/recieve type   ='S', 'B', or 'I' for standard send,
+                           !  buffer blocking send or immediate non-blocking sends, resp.
+   nn_buffer   =   0       !  size in bytes of exported buffer ('B' case), 0 no exportation
+   ln_nnogather=  .false.  !  activate code to avoid mpi_allgather use at the northfold
+   jpni        =   7       !  jpni   number of processors following i (set automatically if < 1)
+   jpnj        =   8       !  jpnj   number of processors following j (set automatically if < 1)
+   jpnij       =   0       !  jpnij  number of local domains (set automatically if < 1)
+/

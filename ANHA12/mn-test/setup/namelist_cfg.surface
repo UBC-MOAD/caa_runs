@@ -1,0 +1,46 @@
+!-----------------------------------------------------------------------
+&namsbc        !   Surface Boundary Condition (surface module)
+!-----------------------------------------------------------------------
+   nn_fsbc     = 1         !  frequency of surface boundary condition computation
+   !                       !     (also = the frequency of sea-ice model call)
+   ln_ana      = .false.   !  analytical formulation                    (T => fill namsbc_ana )
+   ln_blk_core = .true.    !  CORE bulk formulation                     (T => fill namsbc_core)
+   nn_ice      = 2         !  ice-model used
+   ln_rnf      = .true.    !  runoffs                                   (T => fill namsbc_rnf)
+   ln_ssr      = .true.    !  Sea Surface Restoring on T and/or S       (T => fill namsbc_ssr)
+   nn_fwb      = 0         !  FreshWater Budget: =0 unchecked
+/
+!-----------------------------------------------------------------------
+&namsbc_core   !   namsbc_core  CORE bulk formulae
+!-----------------------------------------------------------------------
+   rn_pfac     = 1000.00    ! multiplicative factor for precipitation (total & snow)
+/
+!-----------------------------------------------------------------------
+&namtra_qsr    !   penetrative solar radiation
+!-----------------------------------------------------------------------
+   ln_traqsr   = .true.    !  light penetration (T) or not (F)
+   ln_qsr_rgb  = .false.   !  RGB (Red-Green-Blue) light penetration
+   ln_qsr_2bd  = .true.    !  2 bands              light penetration
+   ln_qsr_bio  = .false.   !  bio-model light penetration
+   nn_chldta   =      0    !  RGB : Chl data (=1) or cst value (=0)
+   rn_abs      =   0.58    !  RGB & 2 bands: fraction of light (rn_si1)
+   rn_si0      =   0.35    !  RGB & 2 bands: shortess depth of extinction
+   rn_si1      =   23.0    !  2 bands: longest depth of extinction
+
+/
+!-----------------------------------------------------------------------
+&namsbc_ssr    !   surface boundary condition : sea surface restoring
+!-----------------------------------------------------------------------
+   nn_sssr     =     0     !  add a damping     term in the surface freshwater flux (=2)
+   rn_deds     =   -34.0   !  magnitude of the damping on salinity   [mm/day]
+   ln_sssr_bnd =   .true.  !  flag to bound erp term (associated with nn_sssr=2)
+/
+!-----------------------------------------------------------------------
+&namsbc_alb    !   albedo parameters
+!-----------------------------------------------------------------------
+   rn_cloud    =    0.06   !  cloud correction to snow and ice albedo
+   rn_albice   =  0.50     !
+   rn_alphd    =    0.80   !  coefficients for linear interpolation used to
+   rn_alphc    =    0.65   !  compute albedo between two extremes values
+   rn_alphdi   =    0.72   !  (Pyane, 1972)
+/

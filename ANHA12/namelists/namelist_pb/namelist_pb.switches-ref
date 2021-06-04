@@ -1,0 +1,10 @@
+!,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+&trc_switches
+!,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+   ln_sink      = .false.   ! sink of dissolved Pb
+   ln_dPb_river = .false.    ! river input of dissolved Pb
+   ln_dust      = .false.    ! dust deposition on surface of ocean
+   ln_ice       = .false.    ! flux of aerosols from ice to the ocean
+   ln_sed_ice   = .false.    ! flux of sediment from ice
+   ln_sed       = .false.   ! flux from sediment
+/

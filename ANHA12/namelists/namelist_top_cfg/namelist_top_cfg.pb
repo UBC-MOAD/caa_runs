@@ -1,0 +1,65 @@
+!-----------------------------------------------------------------------
+&namtrc     !   tracers definition
+!-----------------------------------------------------------------------
+!           !    name  !  title of the field  ! initial data ! initial data ! obc    !    sbc  !  cbc    ! save   !
+!           !          !                      !  units       ! from file    !                             ! or not !
+!           !          !                      !              ! or not       !                             !        !
+   sn_tracer(1)  = 'DPB' , 'Dissolved Pb', 'mol/L'  , .true.  , .true.  , .false. ,  .false.  ,  .true. 
+   ln_trcdta = .true. ! initialisation from data input file (T)
+   ln_trcdmp = .false.
+/
+!-----------------------------------------------------------------------
+&namtrc_dta      !    Initialisation from data input file
+!-----------------------------------------------------------------------
+!                !  file name               ! frequency (hours) ! variable   ! time interp. !  clim  ! 'yearly'/ ! weights  ! rotation ! land/sea mask !
+!                !                          !  (if <0  months)  !   name     !   (logical)  !  (T/F) ! 'monthly' ! filename ! pairing  ! filename      !
+   sn_trcdta(1)  = 'Pb_ini.nc'    ,        -1        ,  'dPb'     ,    .false.   , .true. , 'yearly'  , ''       , ''       , ''
+   rn_trfac(1)   =  1.0  !
+   cn_dir='./'
+/
+!----------------------------------------------------------------------
+&nambdy_bc       ! data for BDY boundary conditions: E (model S boundary)
+!----------------------------------------------------------------------
+!          ! file name     !  frequency (hours) ! variable     ! time interp.   !  clim   ! yearly / !  weights ! rotation ! land/sea mask !
+!          !               !  (if <0 months)    !  name        !  (logical)     !  (T/F)  ! monthly  ! filename ! pairing  ! filename      !
+   sn_trcobc(1)  = 'Pb_OBC.nc',         -12,     'dPb_N' ,  .false., .true., 'yearly', '', '', ''
+   cn_dir_obc    = './'
+   rn_trofac(1)  = 1.0
+/
+!----------------------------------------------------------------------
+&nambdy_bc       ! data for BDY boundary conditions: E (model S boundary)
+!----------------------------------------------------------------------
+!          ! file name     !  frequency (hours) ! variable     ! time interp.   !  clim   ! yearly / !  weights ! rotation ! land/sea mask !
+!          !               !  (if <0 months)    !  name        !  (logical)     !  (T/F)  ! monthly  ! filename ! pairing  ! filename      !
+   sn_trcobc(1)  = 'Pb_OBC.nc',         -12,     'dPb_E' ,  .false., .true., 'yearly', '', '', ''
+   cn_dir_obc    = './'
+   rn_trofac(1)  = 1.0
+/
+!----------------------------------------------------------------------
+&nambdy_bc       ! data for BDY boundary conditions: E (model S boundary)
+!----------------------------------------------------------------------
+!          ! file name     !  frequency (hours) ! variable     ! time interp.   !  clim   ! yearly / !  weights ! rotation ! land/sea mask !
+!          !               !  (if <0 months)    !  name        !  (logical)     !  (T/F)  ! monthly  ! filename ! pairing  ! filename      !
+   sn_trcobc(1)  = 'Pb_OBC.nc',         -12,     'dPb_S' ,  .false., .true., 'yearly', '', '', ''
+   cn_dir_obc    = './'
+   rn_trofac(1)  = 1.0
+/
+!----------------------------------------------------------------------
+&nambdy_bc       ! data for BDY boundary conditions: SE boundary
+!----------------------------------------------------------------------
+!          ! file name     !  frequency (hours) ! variable     ! time interp.   !  clim   ! yearly / !  weights ! rotation ! land/sea mask !
+!          !               !  (if <0 months)    !  name        !  (logical)     !  (T/F)  ! monthly  ! filename ! pairing  ! filename      !
+   sn_trcobc(1)  = 'Pb_OBC.nc',         -12,     'dPb_SE' ,  .false., .true., 'yearly', '', '', ''
+   cn_dir_obc    = './'
+   rn_trofac(1)  = 1.0
+/
+!----------------------------------------------------------------------
+&nambdy_bc       ! data for BDY boundary conditions: SE boundary
+!----------------------------------------------------------------------
+!          ! file name     !  frequency (hours) ! variable     ! time interp.   !  clim   ! yearly / !  weights ! rotation ! land/sea mask !
+!          !               !  (if <0 months)    !  name        !  (logical)     !  (T/F)  ! monthly  ! filename ! pairing  ! filename      !
+   sn_trcobc(1)  = 'Pb_OBC.nc',         -12,     'dPb_W' ,  .false., .true., 'yearly', '', '', ''
+   cn_dir_obc    = './'
+   rn_trofac(1)  = 1.0
+/
+

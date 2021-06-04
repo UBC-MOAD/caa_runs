@@ -1,0 +1,98 @@
+!,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+&trc_switches
+!,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+   ln_sink      = .true.    ! sinking of particles
+   ln_bury      = .true.    ! burial of particles
+   ln_scav      = .true.   ! scavenging (redox)
+   ln_dMn_river = .true.    ! river input of dissolved Mn
+   ln_pMn_river = .false.   ! river input of particulate Mn
+   ln_dust      = .true.    ! dust deposition on surface of ocean
+   ln_ice       = .true.    ! flux of aerosols from ice to the ocean
+   ln_sed_ice   = .true.    ! flux of sediment from ice
+   ln_bio       = .false.   ! biological uptake and remineralisation
+   ln_sed       = .true.   ! flux from sediment
+/
+
+
+!,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+&trc_rivers
+!,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+!              !  file name           ! frequency (hours) ! variable  ! time interp. !  clim  ! 'yearly'/ ! weights  ! rotation ! land/sea mask
+!              !                      !  (if <0  months)  !   name    !   (logical)  !  (T/F) ! 'monthly' ! filename ! pairing  ! filename
+   sn_dMn_river   =  'river_input',        -1       ,  'dmn_rivers',    .false.   , .true. ,  'yearly' ,    ''    ,    '', ''
+   sn_pMn_river   =  'river_input',        -1       ,  'pmn_rivers',    .false.   , .true. ,  'yearly' ,    ''    ,    '', ''
+   cn_dir_riv     = './'
+/
+!,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+&trc_dust
+!,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+!              !  file name           ! frequency (hours) ! variable  ! time interp. !  clim  ! 'yearly'/ ! weights  ! rotation ! land/sea mask
+!              !                      !  (if <0  months)  !   name    !   (logical)  !  (T/F) ! 'monthly' ! filename ! pairing  ! filename
+   sn_atm_fine_dust_flux     =  'atm_flux'   ,        -1       ,  'fdust',    .false.   , .false. ,  'monthly' ,    ''    ,    '', ''
+   sn_atm_coarse_dust_flux   =  'atm_flux'   ,        -1       ,  'cdust',    .false.   , .false. ,  'monthly' ,    ''    ,    '', ''
+   cn_dir_atm     = './dust_fields/'
+/
+!,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+&trc_ice
+!,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+!              !  file name           ! frequency (hours) ! variable  ! time interp. !  clim  ! 'yearly'/ ! weights  ! rotation ! land/sea mask
+!              !                      !  (if <0  months)  !   name    !   (logical)  !  (T/F) ! 'monthly' ! filename ! pairing  ! filename
+   sn_ice_flux     =  'ice_flux'   ,        -1       ,  'dust',    .false.   , .false. ,  'monthly' ,    ''    ,    '', ''
+   cn_dir_ice      = './ice_fields/'
+/
+!,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+&trc_bio
+!,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+!              !  file name           ! frequency (hours) ! variable  ! time interp. !  clim  ! 'yearly'/ ! weights  ! rotation ! land/sea mask
+!              !                      !  (if <0  months)  !   name    !   (logical)  !  (T/F) ! 'monthly' ! filename ! pairing  ! filename
+   sn_bio       =  'dNO3',        -1       ,  'dNO3',    .false.   , .false. ,  'monthly' ,    ''    ,    '', ''
+   cn_dir_bio   = './bio_fields/'
+/
+!,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+&trc_sed
+!,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+!              !  file name           ! frequency (hours) ! variable  ! time interp. !  clim  ! 'yearly'/ ! weights  ! rotation ! land/sea mask
+!              !                      !  (if <0  months)  !   name    !   (logical)  !  (T/F) ! 'monthly' ! filename ! pairing  ! filename
+   sn_sed   =  'eros_rate',        -1       ,  'er_rate',    .false.   , .true. ,  'yearly' ,    ''    ,    '', ''
+   cn_dir_sed     = './'
+/
+!,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+&trc_red
+!,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+!              !  file name           ! frequency (hours) ! variable  ! time interp. !  clim  ! 'yearly'/ ! weights  ! rotation ! land/sea mask
+!              !                      !  (if <0  months)  !   name    !   (logical)  !  (T/F) ! 'monthly' ! filename ! pairing  ! filename
+   sn_red   =  'red',        -1              ,  'kred',    .false.   , .false. ,  'monthly' ,    ''    ,    '', ''
+   cn_dir_red     = './reduction_forcing/'
+/
+!,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+&trc_sed_ice
+!,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+!              !  file name           ! frequency (hours) ! variable  ! time interp. !  clim  ! 'yearly'/ ! weights  ! rotation ! land/sea mask
+!              !                      !  (if <0  months)  !   name    !   (logical)  !  (T/F) ! 'monthly' ! filename ! pairing  ! filename
+   sn_sed_ice      =  'ice_sediment'            ,  -1     ,  'prop_shelf',  .false.   , .true. ,  'yearly' ,    ''    ,    '', ''
+   sn_ice_prod     =  'ANHA12-EXH006_5d_icemod' , 120     ,  'iiceprod'  ,  .true.   , .false. , 'fday',    ''    ,    '', ''
+   cn_dir_ice_prod = './dynamics_fields/'
+   cn_dir_sed_ice  = './'
+/
+
+
+!,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+&trc_constants
+!,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+   kox           = 7.00e-7            ! Based on data
+   kredPZ        = 2.72e-5            ! Sunda and Huntsman (1994)
+   kredAZ        = 4.72e-7            ! Sunda and Huntsman (1994)
+   RedNOPho      = 21.146             ! 0.04729 NO:Pho, so 1/0.04 is Pho:NO       ! Redfield ratio calculated based on Leg 2 and 3b sample data
+   RedMnPho      = 0.36e-3            ! Extended redfield ratio calculated from data at GIPY5 zero meridian section (Middag et al., 2011)
+   Mn_frac_atm_fine_dust    = 0.527   ! Mn fraction in fine dust (Wedepohl, 1995)
+   Mn_frac_atm_coarse_dust  = 0.527   ! Mn fraction in coarse dust
+   Mn_frac_ice_dust         = 0.170     ! 0.170   ! from weppi.gtk.fi/publ/foregsatlas/text/Mn.pdf
+   Mn_frac_sediment         = 0.270   ! Macdonald and Gobeil, 2011
+   dust_ratio_thres         = 55.0    ! dust ratio threshold
+   solubility_Mn = 0.65               ! From Fishwick et al. (2018) at T=4C; solubility of Mn = 0.40 in Mahowald et al., 2018
+   molar_mass_Mn = 54.938045          ! grams per mole of Mn
+   resus_cst     = 1.0                ! Sediment resuspension rate in kg/m2/s to multiply by erosion rate
+   sed_content   = 0.5                ! Ave sediment content in sea-ice in kg/m3 (Eicken et al., 2005)
+/
+
+

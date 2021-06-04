@@ -1,0 +1,46 @@
+!------------------------------------------------------------------------
+&nambdy        !  unstructured open boundaries                          ("key_bdy")
+!------------------------------------------------------------------------
+    nb_bdy         = 3                          !  number of open boundary sets
+    ln_coords_file = .false., .false., .false.
+    cn_dyn2d       = 'none', 'none', 'none'
+    nn_dyn2d_dta   = 0, 0, 0
+    cn_dyn3d       = 'none', 'none', 'none'
+    nn_dyn3d_dta   = 0, 0, 0
+
+    cn_tra         = 'none', 'none', 'none'
+    nn_tra_dta     = 0, 0, 0
+    ln_tra_dmp     = .false., .false., .false.
+
+    nn_rimwidth    = 10., 20., 10.
+/
+!-----------------------------------------------------------------------
+&namlbc        !   lateral momentum boundary condition
+!-----------------------------------------------------------------------
+   rn_shlat    =    0.     !  shlat = 0  !  0 < shlat < 2  !  shlat = 2  !  2 < shlat
+                           !  free slip  !   partial slip  !   no slip   ! strong slip
+/
+!-----------------------------------------------------------------------
+&nambdy_index    !  open boundaries - definition              ("key_bdy")
+!-----------------------------------------------------------------------
+    ctypebdy = 'N'
+    nbdyind  = 698  ! 568  ! constant index
+    nbdybeg  = 42   !2    ! start index
+    nbdyend  = 638  !598  ! end index
+/
+!-----------------------------------------------------------------------
+&nambdy_index    !  open boundaries - definition              ("key_bdy")
+!-----------------------------------------------------------------------
+    ctypebdy = 'E'
+    nbdyind  = 638  ! 598 ! i-index for segment
+    nbdybeg  = 2    ! j-index for segment beginning
+    nbdyend  = 698  ! j-index for segment end
+/
+!-----------------------------------------------------------------------
+&nambdy_index    !  open boundaries - definition              ("key_bdy")
+!-----------------------------------------------------------------------
+    ctypebdy = 'S'
+    nbdyind  = 2
+    nbdybeg  = 22    ! 2    !
+    nbdyend  = 638   !598  !
+/

@@ -1,0 +1,51 @@
+!-----------------------------------------------------------------------
+&namcfg     !   parameters of the configuration
+!-----------------------------------------------------------------------
+   cp_cfg      =  "ANHA12_EXH006"        !  name of the configuration
+   jp_cfg      =      1                  !  resolution of the configuration
+   jpidta      =      1632               !  1st lateral dimension ( >= jpi ) = 30*jp_cfg+2
+   jpjdta      =      2400               !  2nd    "         "    ( >= jpj ) = 20*jp_cfg+2
+   jpkdta      =      50                 !  number of levels      ( >= jpk )
+   jpiglo      =      640                !  1st dimension of global domain --> i  = jpidta
+   jpjglo      =      700                !  2nd    -                  -    --> j  = jpjdta
+   jpizoom     =      160                !  left bottom (i,j) indices of the zoom
+   jpjzoom     =      1480               !  in data domain indices
+   jperio      =      0                  !  lateral cond. type (between 0 and 6)
+/
+!-----------------------------------------------------------------------
+&namzgr        !   vertical coordinate
+!-----------------------------------------------------------------------
+   ln_zco      = .false.  !  z-coordinate - full    steps   (T/F)      ("key_zco" may also be defined)
+   ln_zps      = .true.   !  z-coordinate - partial steps   (T/F)
+   ln_sco      = .false.  !  s- or hybrid z-s-coordinate (t/F)
+/
+!-----------------------------------------------------------------------
+&namzgr_sco    !   s-coordinate or hybrid z-s-coordinate
+!-----------------------------------------------------------------------
+   rn_sbot_min = 300.     ! min depth of s-bottom surface
+   rn_sbot_max = 5250.    ! max depth of s-bottom surface
+   rn_theta = 6.0         ! surface control parameter
+   rn_thetb = 0.75        ! bottom control parameter
+   rn_rmax = 0.15         ! max cut-off r-value allowed
+   ln_s_sh94 = .false.    ! hybrid s-sigma coordinates
+   rn_bb = 0.8            ! stretching with s-sigma
+   rn_hc = 150.0          ! critical depth with s-sigma
+/
+
+!-----------------------------------------------------------------------
+&namdom        !   space and time domain (bathymetry, mesh, timestep)
+!-----------------------------------------------------------------------
+   nn_bathy    =    1      !  compute (=0) or read (=1) the bathymetry file
+   nn_msh      =    2      ! mesh file
+
+   rn_hmin      = -3.0     ! min depth of the ocean (>0) or min number of ocean leavel (<0)
+   rn_e3zps_min = 25.0     ! partial step thickness is set larger than the minimum of
+   rn_e3zps_rat = 0.2      ! rn_e3zps_min and rn_e3zps_rat*e3t, with 0<rn_e3zps_rat<1
+                                !
+   rn_rdt      = 180.0     !  time step for the dynamics (and tracer if nn_acc=0)
+   rn_rdtmin   = 180.0     !  minimum time step on tracers (used if nn_acc=1)
+   rn_rdtmax   = 180.0     !  maximum time step on tracers (used if nn_acc=1)
+   rn_rdth     = 800.0     !  depth variation of tracer time step (used if nn_acc = 1
+   nn_baro     = 90        !  number of barotropic time step
+   jphgr_msh   =    0      !  type of horizontal mesh --- curvilinear coordinate read in coordinate.nc
+/

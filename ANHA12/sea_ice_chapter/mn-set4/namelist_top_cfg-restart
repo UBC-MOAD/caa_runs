@@ -1,0 +1,112 @@
+!-----------------------------------------------------------------------
+&namtrc_run      !
+!-----------------------------------------------------------------------
+   ln_rsttr      = .true.   !  start from a restart file (T) or not (F)
+/
+!-----------------------------------------------------------------------
+&namtrc_bdy      !    bdy for passive tracers
+!-----------------------------------------------------------------------
+   cn_trc_dflt = 'frs', 'frs', 'frs'
+   cn_trc      = 'frs', 'frs', 'frs'            !boundary conditions for passive tracers
+   nn_trcdmp_bdy = 0, 0, 0
+/
+!-----------------------------------------------------------------------
+&namtrc_bc       !   data for boundary conditions
+!-----------------------------------------------------------------------
+   cn_dir_sbc        =  './'      !  root directory for the location of SURFACE data files
+   cn_dir_cbc        =  './'      !  root directory for the location of COASTAL data files
+/
+!----------------------------------------------------------------------
+&namtrc_ldf !    lateral diffusion scheme for passive tracer
+!----------------------------------------------------------------------
+   rn_ahtrc_0       =  50.0     !  horizontal eddy diffusivity for tracers [m2/s]
+   rn_ahtrb_0       =   0.0     !     background eddy diffusivity for ldf_iso [m2/s]
+/
+!-----------------------------------------------------------------------
+&namtrc_adv    !   advection scheme for passive tracer
+!-----------------------------------------------------------------------
+   ln_trcadv_cen2    =  .false.  !  2nd order centered scheme
+   ln_trcadv_tvd     =  .true.  !  TVD scheme
+   ln_trcadv_muscl   =  .false.   !  MUSCL scheme
+   ln_trcadv_muscl2  =  .false.  !  MUSCL2 scheme + cen2 at boundaries
+   ln_trcadv_ubs     =  .false.  !  UBS scheme
+   ln_trcadv_qck     =  .false.  !  QUICKEST scheme
+   ln_trcadv_msc_ups =  .false.  !  use upstream scheme within muscl
+/
+!-----------------------------------------------------------------------
+&namtrc_ice       !    Representation of sea ice growth & melt effects
+!-----------------------------------------------------------------------
+   nn_ice_tr   =  -1        !  tracer concentration in sea ice
+                           !    =-1 (no vvl: identical cc in ice and ocean / vvl: cc_ice = 0)
+                           !    = 0 (no vvl: cc_ice = zero / vvl: cc_ice = )
+                           !    = 1 prescribed to a namelist value (implemented in pisces only)
+/
+!---------------------------------------------------------------------
+&namtrc_dmp      !    passive tracer newtonian damping
+!---------------------------------------------------------------------
+!   nn_hdmp_tr    =   -2         ! horizontal shape = -2 customized
+   nn_zdmp_tr    =    1         ! vertical shape   =  1 no damping in the mixing layer (kz criteria)
+!   rn_surf_tr    =   50.        ! surface time scale of damping  [days]
+!   rn_bot_tr     =  360.        ! bottom time scale of damping   [days]
+!   rn_dep_tr     =  800.        ! depth of transition between rn_surf and rn_bot [meters]
+/
+
+
+!-----------------------------------------------------------------------
+&namtrc     !   tracers definition
+!-----------------------------------------------------------------------
+!           !    name  !  title of the field  ! initial data ! initial data ! obc    !    sbc  !  cbc    ! save   !
+!           !          !                      !  units       ! from file    !                             ! or not !
+!           !          !                      !              ! or not       !                             !        !
+   sn_tracer(1)  = 'DMN' , 'Dissolved Mn', 'mol/L'  , .true.  , .true.  , .false. ,  .false.  ,  .true.
+   sn_tracer(2)  = 'OMN' , 'Oxidised Mn' , 'mol/L'  , .true.  , .true.  , .false. ,  .false.  ,  .true.
+!   sn_tracer(3)  = 'RNF' , 'River runoff', 'kg/s/m2', .false.  , .false. , .false. ,  .flase.  ,  .false. 
+   ln_trcdta = .true. ! initialisation from data input file (T)
+   ln_trcdmp = .false.
+/
+!-----------------------------------------------------------------------
+&namtrc_dta      !    Initialisation from data input file
+!-----------------------------------------------------------------------
+!                !  file name               ! frequency (hours) ! variable   ! time interp. !  clim  ! 'yearly'/ ! weights  ! rotation ! land/sea mask !
+!                !                          !  (if <0  months)  !   name     !   (logical)  !  (T/F) ! 'monthly' ! filename ! pairing  ! filename      !
+   sn_trcdta(1)  = 'Mn_ini.nc'    ,        -1        ,  'dMn'     ,    .false.   , .true. , 'yearly'  , ''       , ''       , ''
+   sn_trcdta(2)  = 'Mn_ini.nc'    ,        -1        ,  'oMn'     ,    .false.   , .true. , 'yearly'  , ''       , ''       , ''
+   rn_trfac(1)   =  1.0  !
+   rn_trfac(2)   =  1.0  !
+   cn_dir='./'
+/
+!----------------------------------------------------------------------
+&nambdy_bc       ! data for BDY boundary conditions: E (model S boundary)
+!----------------------------------------------------------------------
+!          ! file name     !  frequency (hours) ! variable     ! time interp.   !  clim   ! yearly / !  weights ! rotation ! land/sea mask !
+!          !               !  (if <0 months)    !  name        !  (logical)     !  (T/F)  ! monthly  ! filename ! pairing  ! filename      !
+   sn_trcobc(1)  = 'Mn_North_OBC.nc',         -12,     'dMn' ,  .false., .true., 'yearly', '', '', ''
+   sn_trcobc(2)  = 'Mn_North_OBC.nc',         -12,     'oMn' ,  .false., .true., 'yearly', '', '', ''
+   cn_dir_obc    = './open_boundaries/'
+   rn_trofac(1)  = 1.0
+   rn_trofac(2)  = 1.0
+/
+!----------------------------------------------------------------------
+&nambdy_bc       ! data for BDY boundary conditions: E (model S boundary)
+!----------------------------------------------------------------------
+!          ! file name     !  frequency (hours) ! variable     ! time interp.   !  clim   ! yearly / !  weights ! rotation ! land/sea mask !
+!          !               !  (if <0 months)    !  name        !  (logical)     !  (T/F)  ! monthly  ! filename ! pairing  ! filename      !
+   sn_trcobc(1)  = 'Mn_East_OBC.nc',         -12,     'dMn' ,  .false., .true., 'yearly', '', '', ''
+   sn_trcobc(2)  = 'Mn_East_OBC.nc',         -12,     'oMn' ,  .false., .true., 'yearly', '', '', ''
+   cn_dir_obc    = './open_boundaries/'
+   rn_trofac(1)  = 1.0
+   rn_trofac(2)  = 1.0
+/
+!----------------------------------------------------------------------
+&nambdy_bc       ! data for BDY boundary conditions: E (model S boundary)
+!----------------------------------------------------------------------
+!          ! file name     !  frequency (hours) ! variable     ! time interp.   !  clim   ! yearly / !  weights ! rotation ! land/sea mask !
+!          !               !  (if <0 months)    !  name        !  (logical)     !  (T/F)  ! monthly  ! filename ! pairing  ! filename      !
+   sn_trcobc(1)  = 'Mn_South_OBC.nc',         -12,     'dMn' ,  .false., .true., 'yearly', '', '', ''
+   sn_trcobc(2)  = 'Mn_South_OBC.nc',         -12,     'oMn' ,  .false., .true., 'yearly', '', '', ''
+   cn_dir_obc    = './open_boundaries/'
+   rn_trofac(1)  = 1.0
+   rn_trofac(2)  = 1.0
+/
+
+

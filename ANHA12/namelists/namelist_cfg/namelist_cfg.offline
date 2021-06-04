@@ -1,0 +1,27 @@
+!-----------------------------------------------------------------------
+&namdta_dyn        !   offline dynamics read in files                ("key_offline")
+!-----------------------------------------------------------------------
+!            !  file name  ! frequency (hours) ! variable  ! time interp. !  clim  ! 'yearly'/ ! weights  ! rotation !
+!            !             !  (if <0  months)  !   name    !   (logical)  !  (T/F) ! 'monthly' ! filename ! pairing  !
+    cn_dir  = './dynamics_fields/'
+    sn_tem  = 'ANHA12-EXH006_5d_gridT' ,    120           , 'votemper' ,  .true.    , .false. ,   'fday'   , ''       , '', ''
+    sn_sal  = 'ANHA12-EXH006_5d_gridT' ,    120           , 'vosaline' ,  .true.    , .false. ,   'fday'   , ''       , '', ''
+    sn_mld  = 'ANHA12-EXH006_5d_gridT' ,    120           , 'somxl010' ,  .true.    , .false. ,   'fday'   , ''       , '', ''
+
+    sn_emp  = 'ANHA12-EXH006_5d_icemod' ,    120           , 'iiceprod' ,  .true.    , .false. ,   'fday'   , ''       , '', ''
+    sn_fmf  = 'ANHA12-EXH006_5d_icemod' ,    120           , 'iicesflx' ,  .true.    , .false. ,   'fday'   , ''       , '', ''
+    sn_ice  = 'ANHA12-EXH006_5d_icemod' ,    120           , 'ileadfra' ,  .true.    , .false. ,   'fday'   , ''       , '', ''
+    sn_wnd  = 'ANHA12-EXH006_5d_icemod' ,    120           , 'iwinstru' ,  .true.    , .false. ,   'fday'   , ''       , '', ''
+
+    sn_qsr  = 'ANHA12-EXH006_5d_gridT' ,    120           , 'somxl010' ,  .true.    , .false. ,   'fday'   , ''       , '', ''
+
+    sn_uwd  = 'ANHA12-EXH006_5d_gridU' ,    120           , 'vozocrtx' ,  .true.    , .false. ,   'fday'   , ''       , '', ''
+    sn_vwd  = 'ANHA12-EXH006_5d_gridV' ,    120           , 'vomecrty' ,  .true.    , .false. ,   'fday'   , ''       , '', ''
+    sn_wwd  = 'ANHA12-EXH006_5d_gridW' ,    120           , 'vovecrtz' ,  .true.    , .false. ,   'fday'   , ''       , '', ''
+
+    sn_avt  = 'ANHA12-EXH006_5d_gridW' ,    120           , 'votkeavt' ,  .true.    , .false. ,   'fday'  , ''       , '', ''
+
+   ln_dynwzv   =  .true.   !  computation of vertical velocity instead of using the one read in file
+   ln_dynbbl   =  .false.  !  bbl coef are in files, so read them - requires ("key_trabbl")
+   ln_dynrnf   =  .false.  !  river runoff option enabled (T) or not (F)
+/

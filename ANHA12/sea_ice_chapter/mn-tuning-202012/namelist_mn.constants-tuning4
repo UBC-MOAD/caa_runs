@@ -1,0 +1,14 @@
+!,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+&trc_constants
+!,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+   kox           = 7.00e-7            ! Calculated based on data from Colombo et al. (2020) and thesis from Li (2017)
+   kredAZ        = 4.72e-7            ! Sunda and Huntsman (1994)
+   RedNOPho      = 21.146             ! Redfield ratio calculated based on Leg 2 and 3b sample data
+   RedMnPho      = 0.36e-3            ! Extended redfield ratio calculated from data at GIPY5 zero meridian section (Middag et al., 2011)
+   Mn_crustal_abundance = 0.527       ! Mn fraction in fine dust (Wedepohl, 1995)
+   Mn_frac_sediment     = 0.270       ! Macdonald and Gobeil, 2011
+   solubility_Mn = 0.65               ! From Fishwick et al. (2018) at T=4C; solubility of Mn = 0.40 in Mahowald et al., 2018
+   molar_mass_Mn = 54.938045          ! grams per mole of Mn
+   resus_cst     = 4.0                ! Sediment resuspension rate in kg/m2/s to multiply by erosion rate
+   sed_content   = 0.5                ! Ave sediment content in sea-ice in kg/m3 (Eicken et al., 2005)
+/

@@ -1,0 +1,55 @@
+!-----------------------------------------------------------------------
+&namtrc     !   tracers definition
+!-----------------------------------------------------------------------
+!           !    name  !  title of the field  ! initial data ! initial data ! obc    !    sbc  !  cbc    ! save   !
+!           !          !                      !  units       ! from file    !                             ! or not !
+!           !          !                      !              ! or not       !                             !        !
+   sn_tracer(1)  = 'DMN' , 'Dissolved Mn', 'mol/L'  , .true.  , .true.  , .false. ,  .false.  ,  .true.
+   sn_tracer(2)  = 'OMN' , 'Oxidised Mn' , 'mol/L'  , .true.  , .true.  , .false. ,  .false.  ,  .true. 
+   ln_trcdta = .true. ! initialisation from data input file (T)
+   ln_trcdmp = .false.
+/
+!-----------------------------------------------------------------------
+&namtrc_dta      !    Initialisation from data input file
+!-----------------------------------------------------------------------
+!                !  file name               ! frequency (hours) ! variable   ! time interp. !  clim  ! 'yearly'/ ! weights  ! rotation ! land/sea mask !
+!                !                          !  (if <0  months)  !   name     !   (logical)  !  (T/F) ! 'monthly' ! filename ! pairing  ! filename      !
+   sn_trcdta(1)  = 'Mn_ini.nc'    ,        -1        ,  'dMn'     ,    .false.   , .true. , 'yearly'  , ''       , ''       , ''
+   sn_trcdta(2)  = 'Mn_ini.nc'    ,        -1        ,  'oMn'     ,    .false.   , .true. , 'yearly'  , ''       , ''       , ''
+   rn_trfac(1)   =  1.0  !
+   rn_trfac(2)   =  1.0  !
+   cn_dir='./'
+/
+!----------------------------------------------------------------------
+&nambdy_bc       ! data for BDY boundary conditions: E (model S boundary)
+!----------------------------------------------------------------------
+!          ! file name     !  frequency (hours) ! variable     ! time interp.   !  clim   ! yearly / !  weights ! rotation ! land/sea mask !
+!          !               !  (if <0 months)    !  name        !  (logical)     !  (T/F)  ! monthly  ! filename ! pairing  ! filename      !
+   sn_trcobc(1)  = 'Mn_North_OBC.nc',         -12,     'dMn' ,  .false., .true., 'yearly', '', '', ''
+   sn_trcobc(2)  = 'Mn_North_OBC.nc',         -12,     'oMn' ,  .false., .true., 'yearly', '', '', ''
+   cn_dir_obc    = './open_boundaries/'
+   rn_trofac(1)  = 1.0
+   rn_trofac(2)  = 1.0
+/
+!----------------------------------------------------------------------
+&nambdy_bc       ! data for BDY boundary conditions: E (model S boundary)
+!----------------------------------------------------------------------
+!          ! file name     !  frequency (hours) ! variable     ! time interp.   !  clim   ! yearly / !  weights ! rotation ! land/sea mask !
+!          !               !  (if <0 months)    !  name        !  (logical)     !  (T/F)  ! monthly  ! filename ! pairing  ! filename      !
+   sn_trcobc(1)  = 'Mn_East_OBC.nc',         -12,     'dMn' ,  .false., .true., 'yearly', '', '', ''
+   sn_trcobc(2)  = 'Mn_East_OBC.nc',         -12,     'oMn' ,  .false., .true., 'yearly', '', '', ''
+   cn_dir_obc    = './open_boundaries/'
+   rn_trofac(1)  = 1.0
+   rn_trofac(2)  = 1.0
+/
+!----------------------------------------------------------------------
+&nambdy_bc       ! data for BDY boundary conditions: E (model S boundary)
+!----------------------------------------------------------------------
+!          ! file name     !  frequency (hours) ! variable     ! time interp.   !  clim   ! yearly / !  weights ! rotation ! land/sea mask !
+!          !               !  (if <0 months)    !  name        !  (logical)     !  (T/F)  ! monthly  ! filename ! pairing  ! filename      !
+   sn_trcobc(1)  = 'Mn_South_OBC.nc',         -12,     'dMn' ,  .false., .true., 'yearly', '', '', ''
+   sn_trcobc(2)  = 'Mn_South_OBC.nc',         -12,     'oMn' ,  .false., .true., 'yearly', '', '', ''
+   cn_dir_obc    = './open_boundaries/'
+   rn_trofac(1)  = 1.0
+   rn_trofac(2)  = 1.0
+/

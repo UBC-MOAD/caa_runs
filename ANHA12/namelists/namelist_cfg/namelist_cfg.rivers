@@ -1,0 +1,18 @@
+!-----------------------------------------------------------------------
+&namsbc_rnf    !   runoffs namelist surface boundary condition
+!-----------------------------------------------------------------------
+!              !  file name           ! frequency (hours) ! variable  ! time interp. !  clim  ! 'yearly'/ ! weights  ! rotation ! land/sea mask
+!              !                      !  (if <0  months)  !   name    !   (logical)  !  (T/F) ! 'monthly' ! filename ! pairing  ! filename
+
+   cn_dir      = './runoff_fields/'
+   sn_rnf      = 'runoff_monthly',        -1         , 'runoff' ,   .true.     , .false.  , 'yearly'  , ''       , '', ''
+   sn_cnf      = 'runoff_monthly',        0          , 'socoefr',   .false.    , .true.  , 'yearly'  , ''       , '', ''
+
+   ln_rnf_mouth = .true.    !%  specific treatment at rivers mouths
+   rn_hrnf     = 30.e0      !% depth over which enhanced vertical mixing is used
+   rn_avt_rnf  = 2.e-3      !% value of the additional vertical mixing coef. [m2/s]
+   rn_rfact    = 1.e0       !% multiplicatie factor for runoff
+   ln_rnf_depth = .false.   !% read in depth info for runoff
+   ln_rnf_tem  = .false.    !% read in temperature info for runoff
+   ln_rnf_sal  = .false.    !% read in salinity info for runoff
+/

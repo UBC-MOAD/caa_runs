@@ -1,0 +1,5 @@
+Steps:
+(1) Burial
+(2) New forcing files, old river, no bioavailable fraction, fix sinking rate method
+(3) Sinking rate from up to 10 m/day up to 3 m/day
+(4) Higher resuspension rate, sinking rate from 3

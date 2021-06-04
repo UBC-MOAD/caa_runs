@@ -1,0 +1,14 @@
+!,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+&trc_switches
+!,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+   ln_sink      = .false.    ! sinking of particles
+   ln_bury      = .true.    ! burial of particles
+   ln_scav      = .true.    ! scavenging (redox)
+   ln_dMn_river = .true.    ! river input of dissolved Mn
+   ln_pMn_river = .false.    ! river input of particle-derived Mn
+   ln_dust      = .true.    ! dust deposition on surface of ocean
+   ln_ice       = .true.    ! flux of aerosols from ice to the ocean
+   ln_sed_ice   = .true.    ! flux of sediment from ice
+   ln_bio       = .false.   ! biological uptake and remineralisation
+   ln_sed       = .true.    ! flux from sediment
+/

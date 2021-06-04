@@ -1,0 +1,12 @@
+!,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+&trc_constants
+!,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+   Pb_frac_atm_BC   = 90.23   ! ratio of Pb to EBC as calculated from Alert dataset 
+   Pb_frac_ice_dust = 0.01    ! 
+   Pb_frac_sediment = 0.01    !  
+   sink_Pb          = 1.06e-7 !0.946e-7! sink term that results from scavenging
+   solubility_Pb    = 0.80    ! From Fishwick et al. (2018) at T=4C
+   molar_mass_Pb    = 207.2   ! grams per mole of Pb
+   resus_cst        = 1.0     ! Sediment resuspension rate in kg/m2/s to multiply by erosion rate
+   sed_content      = 0.5     ! Ave sediment content in sea-ice in kg/m3 (Eicken et al., 2005)
+/

@@ -1,0 +1,52 @@
+!-----------------------------------------------------------------------
+&namtrc_run      !
+!-----------------------------------------------------------------------
+   ln_rsttr      = .false.   !  start from a restart file (T) or not (F)
+/
+!-----------------------------------------------------------------------
+&namtrc_bdy      !    bdy for passive tracers
+!-----------------------------------------------------------------------
+   cn_trc_dflt = 'frs', 'frs', 'frs', 'frs', 'frs'
+   cn_trc      = 'frs', 'frs', 'frs', 'frs', 'frs'            !boundary conditions for passive tracers
+   nn_trcdmp_bdy = 0, 0, 0, 0, 0
+/
+!-----------------------------------------------------------------------
+&namtrc_bc       !   data for boundary conditions
+!-----------------------------------------------------------------------
+   cn_dir_sbc        =  './'      !  root directory for the location of SURFACE data files
+   cn_dir_cbc        =  './'      !  root directory for the location of COASTAL data files
+/
+!----------------------------------------------------------------------
+&namtrc_ldf !    lateral diffusion scheme for passive tracer
+!----------------------------------------------------------------------
+   rn_ahtrc_0       =  50.0     !  horizontal eddy diffusivity for tracers [m2/s]
+   rn_ahtrb_0       =   0.0     !     background eddy diffusivity for ldf_iso [m2/s]
+/
+!-----------------------------------------------------------------------
+&namtrc_adv    !   advection scheme for passive tracer
+!-----------------------------------------------------------------------
+   ln_trcadv_cen2    =  .false.  !  2nd order centered scheme
+   ln_trcadv_tvd     =  .true.  !  TVD scheme
+   ln_trcadv_muscl   =  .false.   !  MUSCL scheme
+   ln_trcadv_muscl2  =  .false.  !  MUSCL2 scheme + cen2 at boundaries
+   ln_trcadv_ubs     =  .false.  !  UBS scheme
+   ln_trcadv_qck     =  .false.  !  QUICKEST scheme
+   ln_trcadv_msc_ups =  .false.  !  use upstream scheme within muscl
+/
+!-----------------------------------------------------------------------
+&namtrc_ice       !    Representation of sea ice growth & melt effects
+!-----------------------------------------------------------------------
+   nn_ice_tr   =  -1        !  tracer concentration in sea ice
+                           !    =-1 (no vvl: identical cc in ice and ocean / vvl: cc_ice = 0)
+                           !    = 0 (no vvl: cc_ice = zero / vvl: cc_ice = )
+                           !    = 1 prescribed to a namelist value (implemented in pisces only)
+/
+!---------------------------------------------------------------------
+&namtrc_dmp      !    passive tracer newtonian damping
+!---------------------------------------------------------------------
+!   nn_hdmp_tr    =   -2         ! horizontal shape = -2 customized
+   nn_zdmp_tr    =    1         ! vertical shape   =  1 no damping in the mixing layer (kz criteria)
+!   rn_surf_tr    =   50.        ! surface time scale of damping  [days]
+!   rn_bot_tr     =  360.        ! bottom time scale of damping   [days]
+!   rn_dep_tr     =  800.        ! depth of transition between rn_surf and rn_bot [meters]
+/

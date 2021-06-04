@@ -1,0 +1,73 @@
+config name: ANHA12_Pb
+MPI decomposition: 10x12
+run_id: pb-step3
+walltime: 0:05:00
+email: brogalla@eoas.ubc.ca
+account: rrg-allen
+
+paths:
+  NEMO code config: /project/def-allen/$USER/GEOTRACES/NEMO-3.6-code/NEMOGCM/CONFIG/
+  XIOS: /project/def-allen/$USER/GEOTRACES/XIOS-2/
+  runs directory: $SCRATCH/
+
+grid:
+  coordinates: /project/def-allen/$USER/GEOTRACES/data/meshmask/ANHA12_coordinates.nc
+  bathymetry: /project/def-allen/$USER/GEOTRACES/data/meshmask/ANHA12_meshmask.nc
+
+forcing:
+  dynamics_fields:
+      link to: /project/def-allen/$USER/GEOTRACES/data/ANHA12/
+  runoff_fields:
+      link to: /project/def-allen/$USER/GEOTRACES/data/runoff/
+  Pb_OBC.nc:
+      link to: /project/def-allen/$USER/GEOTRACES/data/open_boundaries/Pb_OBC-20210302.nc
+  river_input.nc:
+      link to: /project/def-allen/$USER/GEOTRACES/data/runoff/river-forcing-20200429.nc
+  eros_rate.nc:
+      link to: /project/def-allen/$USER/GEOTRACES/data/sources/erosion_rate-20200406.nc
+  ice_sediment.nc:
+      link to: /project/def-allen/$USER/GEOTRACES/data/sources/ice_sediment-20200428.nc
+  Pb_ini.nc:
+      link to: /project/def-allen/$USER/GEOTRACES/data/IC/Pb_ini-20210224.nc
+  dust_fields: 
+      link to: /project/def-allen/$USER/GEOTRACES/data/sources/atmosphere/
+  ice_fields:
+      link to: /project/def-allen/$USER/GEOTRACES/data/sources/ice/
+  mask.nc:
+      link to: /project/def-allen/$USER/GEOTRACES/data/meshmask/ANHA12_mask_Pb-step3.nc
+  mesh.nc:
+      link to: /project/def-allen/$USER/GEOTRACES/data/meshmask/ANHA12_mesh1.nc
+      
+namelists:
+  namelist_cfg:
+    - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_cfg/namelist_cfg.general2002
+    - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_cfg/namelist_cfg.domain_Pb
+    - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_cfg/namelist_cfg.dynamics
+    - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_cfg/namelist_cfg.offline
+    - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_cfg/namelist_cfg.boundaries_Pb
+    - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_cfg/namelist_cfg.surface
+    - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_cfg/namelist_cfg.rivers
+    - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_cfg/namelist_cfg.bottom
+    - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_cfg/namelist_cfg.tracers
+    - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_cfg/namelist_cfg.compute
+  namelist_top_cfg:
+    - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_top_cfg/namelist_top_cfg.general-pb
+    - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_top_cfg/namelist_top_cfg.pb
+  namelist_pb:
+    - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_pb/namelist_pb.switches-ref
+    - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_pb/namelist_pb.forcing
+    - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_pb/namelist_pb.constants
+  namelist_ref:
+    - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_ref/namelist_ref
+
+output:
+  iodefs: /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/xml_files/iodef.xml
+  filedefs: /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/xml_files/file_def-pb.xml
+  domaindefs: /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/xml_files/domain_def.xml
+  fielddefs: /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/xml_files/field_def.xml
+  separate XIOS server: True
+  XIOS servers: 1
+
+modules to load:
+  - netcdf-fortran-mpi/4.4.4
+  - python/3.7.0

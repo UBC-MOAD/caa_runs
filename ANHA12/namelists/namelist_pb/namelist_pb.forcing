@@ -1,0 +1,43 @@
+!,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+&trc_rivers
+!,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+!              !  file name           ! frequency (hours) ! variable  ! time interp. !  clim  ! 'yearly'/ ! weights  ! rotation ! land/sea mask
+!              !                      !  (if <0  months)  !   name    !   (logical)  !  (T/F) ! 'monthly' ! filename ! pairing  ! filename
+   sn_dPb_river   =  'river_input',        -1       ,  'dpb_rivers',    .false.   , .true. ,  'yearly' ,    ''    ,    '', ''
+   cn_dir_riv     = './'
+/
+!,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+&trc_dust
+!,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+!              !  file name           ! frequency (hours) ! variable  ! time interp. !  clim  ! 'yearly'/ ! weights  ! rotation ! land/sea mask
+!              !                      !  (if <0  months)  !   name    !   (logical)  !  (T/F) ! 'monthly' ! filename ! pairing  ! filename
+   sn_atm_black_carbon =  'atm_flux'   ,        -1       ,  'bc',    .false.   , .false. ,  'monthly' ,    ''    ,    '', ''
+   cn_dir_atm          = './dust_fields/'
+/
+!,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+&trc_ice
+!,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+!              !  file name           ! frequency (hours) ! variable  ! time interp. !  clim  ! 'yearly'/ ! weights  ! rotation ! land/sea mask
+!              !                      !  (if <0  months)  !   name    !   (logical)  !  (T/F) ! 'monthly' ! filename ! pairing  ! filename
+   sn_ice_bcpho_flux  =  'ice_flux'   ,        -1       ,  'bc_phobic',    .false.   , .false. ,  'monthly' ,    ''    ,    '', ''
+   sn_ice_bcphi_flux  =  'ice_flux'   ,        -1       ,  'bc_philic',    .false.   , .false. ,  'monthly' ,    ''    ,    '', ''
+   cn_dir_ice         =  './ice_fields/'
+/
+!,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+&trc_sed
+!,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+!              !  file name           ! frequency (hours) ! variable  ! time interp. !  clim  ! 'yearly'/ ! weights  ! rotation ! land/sea mask
+!              !                      !  (if <0  months)  !   name    !   (logical)  !  (T/F) ! 'monthly' ! filename ! pairing  ! filename
+   sn_sed   =  'eros_rate',        -1       ,  'er_rate',    .false.   , .true. ,  'yearly' ,    ''    ,    '', ''
+   cn_dir_sed     = './'
+/
+!,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+&trc_sed_ice
+!,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+!              !  file name           ! frequency (hours) ! variable  ! time interp. !  clim  ! 'yearly'/ ! weights  ! rotation ! land/sea mask
+!              !                      !  (if <0  months)  !   name    !   (logical)  !  (T/F) ! 'monthly' ! filename ! pairing  ! filename
+   sn_sed_ice      =  'ice_sediment'            ,  -1     ,  'prop_shelf',  .false.   , .true. ,  'yearly' ,    ''    ,    '', ''
+   sn_ice_prod     =  'ANHA12-EXH006_5d_icemod' , 120     ,  'iiceprod'  ,  .true.   , .false. , 'fday',    ''    ,    '', ''
+   cn_dir_ice_prod = './dynamics_fields/'
+   cn_dir_sed_ice  = './'
+/
