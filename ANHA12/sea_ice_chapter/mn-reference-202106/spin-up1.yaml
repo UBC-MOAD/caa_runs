@@ -62,9 +62,9 @@ namelists:
     - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_top_cfg/namelist_top_cfg.general-restart
     - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_top_cfg/namelist_top_cfg.mn
   namelist_mn:
-    - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_mn/namelist_mn.switches-ref
-    - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_mn/namelist_mn.forcing
-    - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_mn/namelist_mn.constants-20210308
+    - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_mn/namelist_mn.switches-ref-20210604
+    - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_mn/namelist_mn.forcing-20210604
+    - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_mn/namelist_mn.constants-20210604
   namelist_ref:
     - /project/def-allen/$USER/GEOTRACES/NEMO-3.6-code/NEMOGCM/CONFIG/ANHA12_Mn/EXP00/namelist_ref
 
