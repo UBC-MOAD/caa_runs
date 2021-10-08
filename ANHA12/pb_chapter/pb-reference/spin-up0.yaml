@@ -34,7 +34,7 @@ forcing:
   ice_fields:
       link to: /project/def-allen/$USER/GEOTRACES/data/sources/ice/
   mask.nc:
-      link to: /project/def-allen/$USER/GEOTRACES/data/meshmask/ANHA12_mask_Pb.nc
+      link to: /project/def-allen/$USER/GEOTRACES/data/meshmask/ANHA12_mask_Pb-20210729.nc
   mesh.nc:
       link to: /project/def-allen/$USER/GEOTRACES/data/meshmask/ANHA12_mesh1.nc
       

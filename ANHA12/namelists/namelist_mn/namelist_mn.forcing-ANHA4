@@ -25,14 +25,6 @@
    cn_dir_ice      = './ice_fields/'
 /
 !,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-&trc_bio
-!,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-!              !  file name           ! frequency (hours) ! variable  ! time interp. !  clim  ! 'yearly'/ ! weights  ! rotation ! land/sea mask
-!              !                      !  (if <0  months)  !   name    !   (logical)  !  (T/F) ! 'monthly' ! filename ! pairing  ! filename
-   sn_bio       =  'dNO3',        -1       ,  'dNO3',    .false.   , .false. ,  'monthly' ,    ''    ,    '', ''
-   cn_dir_bio   = './bio_fields/'
-/
-!,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 &trc_sed
 !,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 !              !  file name           ! frequency (hours) ! variable  ! time interp. !  clim  ! 'yearly'/ ! weights  ! rotation ! land/sea mask
@@ -46,7 +38,9 @@
 !              !  file name           ! frequency (hours) ! variable  ! time interp. !  clim  ! 'yearly'/ ! weights  ! rotation ! land/sea mask
 !              !                      !  (if <0  months)  !   name    !   (logical)  !  (T/F) ! 'monthly' ! filename ! pairing  ! filename
    sn_red   =  'red',        -1              ,  'kred',    .false.   , .false. ,  'monthly' ,    ''    ,    '', ''
+   sn_eupho =  'euphotic',    -1             ,  'euphotic', .false.  , .true.   , 'yearly'   ,    ''    ,    '', ''
    cn_dir_red     = './reduction_forcing/'
+   cn_dir_eupho   = './'
 /
 !,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 &trc_sed_ice
@@ -58,3 +52,12 @@
    cn_dir_ice_prod = './dynamics_fields/'
    cn_dir_sed_ice  = './'
 /
+!,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+&trc_bio
+!,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+!              !  file name           ! frequency (hours) ! variable  ! time interp. !  clim  ! 'yearly'/ ! weights  ! rotation ! land/sea mask
+!              !                      !  (if <0  months)  !   name    !   (logical)  !  (T/F) ! 'monthly' ! filename ! pairing  ! filename
+   sn_bio      =  'delta_prod',        -1              ,  'dNO3',    .false.   , .false. ,  'monthly' ,    ''    ,    '', ''
+   cn_dir_bio  = './bio_forcing/'
+/
+

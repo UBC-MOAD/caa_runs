@@ -22,11 +22,11 @@ forcing:
   open_boundaries:
       link to: /project/def-allen/$USER/GEOTRACES/data/open_boundaries/
   river_input.nc:
-      link to: /project/def-allen/$USER/GEOTRACES/data/runoff/river-forcing-base-20201125.nc
+      link to: /project/def-allen/$USER/GEOTRACES/data/runoff/river-forcing-extended.nc
   eros_rate.nc:
-      link to: /project/def-allen/$USER/GEOTRACES/data/sources/erosion_rate-20210310.nc
+      link to: /project/def-allen/$USER/GEOTRACES/data/sources/erosion_rate-extended.nc
   ice_sediment.nc:
-      link to: /project/def-allen/$USER/GEOTRACES/data/sources/ice_sediment-20210309.nc
+      link to: /project/def-allen/$USER/GEOTRACES/data/sources/ice_sediment-extended.nc
   Mn_ini.nc:
       link to: /project/def-allen/$USER/GEOTRACES/data/IC/Mn_ini.nc
   dust_fields: 
@@ -36,7 +36,7 @@ forcing:
   bio_fields:
       link to: /project/def-allen/$USER/GEOTRACES/data/sources/bio/
   reduction_forcing:
-      link to: /project/def-allen/$USER/GEOTRACES/data/sources/reduction/
+      link to: /project/def-allen/$USER/GEOTRACES/data/sources/reduction/extended/
   mask.nc:
       link to: /project/def-allen/$USER/GEOTRACES/data/meshmask/ANHA12_mask.nc
   mesh.nc:
@@ -49,10 +49,10 @@ restart:
 namelists:
   namelist_cfg:
     - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_cfg/namelist_cfg.general2014
-    - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_cfg/namelist_cfg.domain_Mn
+    - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_cfg/namelist_cfg.domain_Mn-extended
     - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_cfg/namelist_cfg.dynamics
     - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_cfg/namelist_cfg.offline
-    - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_cfg/namelist_cfg.boundaries_Mn
+    - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_cfg/namelist_cfg.boundaries_Mn-extended
     - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_cfg/namelist_cfg.surface
     - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_cfg/namelist_cfg.rivers
     - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_cfg/namelist_cfg.bottom
@@ -62,9 +62,9 @@ namelists:
     - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_top_cfg/namelist_top_cfg.general-restart
     - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_top_cfg/namelist_top_cfg.mn
   namelist_mn:
-    - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_mn/namelist_mn.switches-ref
-    - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_mn/namelist_mn.forcing
-    - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_mn/namelist_mn.constants-20210308
+    - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_mn/namelist_mn.switches-ref-20210604
+    - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_mn/namelist_mn.forcing-20210604
+    - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_mn/namelist_mn.constants-20210630
   namelist_ref:
     - /project/def-allen/$USER/GEOTRACES/NEMO-3.6-code/NEMOGCM/CONFIG/ANHA12_Mn/EXP00/namelist_ref
 
@@ -76,10 +76,10 @@ output:
   separate XIOS server: True
   XIOS servers: 1
 
-#vcs revisions:
-#  hg:
-#    - /project/def-allen/$USER/GEOTRACES/NEMO-3.6-code/
-#    - /project/def-allen/$USER/GEOTRACES/XIOS/
+vcs revisions:
+  git:
+    - /project/def-allen/$USER/GEOTRACES/NEMO-3.6-code/
+    - /project/def-allen/$USER/GEOTRACES/caa_runs/
 #    - /project/def-allen/$USER/GEOTRACES/XIOS-ARCH/
 #    - /project/def-allen/$USER/GEOTRACES/NEMO-Cmd/
 

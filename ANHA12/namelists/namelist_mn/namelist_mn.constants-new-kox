@@ -1,0 +1,12 @@
+!,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+&trc_constants
+!,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+   kox           = 3.72e-7            ! Calculated based on data from Colombo et al. (2020) and thesis from Li (2017)
+   kredAZ        = 4.72e-7            ! Sunda and Huntsman (1994)
+   Mn_crustal_abundance = 0.527       ! Mn fraction in fine dust (Wedepohl, 1995)
+   Mn_frac_sediment     = 0.270       ! Macdonald and Gobeil, 2011
+   solubility_Mn = 0.65               ! From Fishwick et al. (2018) at T=4C; solubility of Mn = 0.40 in Mahowald et al., 2018
+   molar_mass_Mn = 54.938045          ! grams per mole of Mn
+   resus_cst     = 0.75               ! Constant by which to multiply erosion rate (read in in kg/m2/s)
+   sed_content   = 0.85               ! Maximal sediment content in sea-ice in kg/m3 (Eicken et al., 2005)
+/

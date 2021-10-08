@@ -29,7 +29,7 @@
 !,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 !              !  file name           ! frequency (hours) ! variable  ! time interp. !  clim  ! 'yearly'/ ! weights  ! rotation ! land/sea mask
 !              !                      !  (if <0  months)  !   name    !   (logical)  !  (T/F) ! 'monthly' ! filename ! pairing  ! filename
-   sn_bio       =  'dNO3',        -1       ,  'dNO3',    .false.   , .false. ,  'monthly' ,    ''    ,    '', ''
+   sn_bio       =  'delta_prod',        -1       ,  'dNO3',    .false.   , .false. ,  'monthly' ,    ''    ,    '', ''
    cn_dir_bio   = './bio_fields/'
 /
 !,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

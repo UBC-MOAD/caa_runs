@@ -80,7 +80,6 @@ vcs revisions:
   git:
     - /project/def-allen/$USER/GEOTRACES/NEMO-3.6-code/
     - /project/def-allen/$USER/GEOTRACES/caa_runs/
-    - /project/def-allen/$USER/GEOTRACES/XIOS-2/
     - /project/def-allen/$USER/GEOTRACES/XIOS-ARCH/
     - /project/def-allen/$USER/GEOTRACES/NEMO-Cmd/
 

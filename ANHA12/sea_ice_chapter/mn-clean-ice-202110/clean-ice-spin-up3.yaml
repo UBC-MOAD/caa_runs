@@ -1,6 +1,6 @@
 config name: ANHA12_Mn
 MPI decomposition: 12x12
-run_id: spin-up7
+run_id: clean-ice-spin-up3
 walltime: 13:00:00
 email: brogalla@eoas.ubc.ca
 account: rrg-allen
@@ -26,25 +26,25 @@ forcing:
   eros_rate.nc:
       link to: /project/def-allen/$USER/GEOTRACES/data/sources/erosion_rate-20210310.nc
   ice_sediment.nc:
-      link to: /project/def-allen/$USER/GEOTRACES/data/sources/ice_sediment-20210309.nc
+      link to: /project/def-allen/$USER/GEOTRACES/data/sources/ice_sediment-20210722.nc
   Mn_ini.nc:
-      link to: /project/def-allen/$USER/GEOTRACES/data/IC/Mn_ini.nc
+      link to: /project/def-allen/$USER/GEOTRACES/data/IC/Mn_ini_20210810.nc
   dust_fields: 
       link to: /project/def-allen/$USER/GEOTRACES/data/sources/atmosphere/
   ice_fields:
       link to: /project/def-allen/$USER/GEOTRACES/data/sources/ice/
-  bio_fields:
-      link to: /project/def-allen/$USER/GEOTRACES/data/sources/bio/
   reduction_forcing:
       link to: /project/def-allen/$USER/GEOTRACES/data/sources/reduction/
+  euphotic.nc:
+      link to: /project/def-allen/$USER/GEOTRACES/data/sources/reduction/euphotic-20210811.nc
   mask.nc:
       link to: /project/def-allen/$USER/GEOTRACES/data/meshmask/ANHA12_mask.nc
   mesh.nc:
       link to: /project/def-allen/$USER/GEOTRACES/data/meshmask/ANHA12_mesh1.nc
 
 restart:
-  restart.nc: /scratch/brogalla/spin-up6-202103/ANHA12_EXH006_00175200_restart_trc.nc
-  restart_trc.nc: /scratch/brogalla/spin-up6-202103/ANHA12_EXH006_00175200_restart_trc.nc
+  restart.nc: /scratch/brogalla/reference_spin-up2_20210917/ANHA12_EXH006_00175200_restart_trc.nc
+  restart_trc.nc: /scratch/brogalla/reference_spin-up2_20210917/ANHA12_EXH006_00175200_restart_trc.nc
 
 namelists:
   namelist_cfg:
@@ -62,9 +62,9 @@ namelists:
     - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_top_cfg/namelist_top_cfg.general-restart
     - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_top_cfg/namelist_top_cfg.mn
   namelist_mn:
-    - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_mn/namelist_mn.switches-ref-20210604
-    - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_mn/namelist_mn.forcing-20210604
-    - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_mn/namelist_mn.constants-20210604
+    - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_mn/namelist_mn.switches-clean-20210604
+    - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_mn/namelist_mn.forcing-20210811
+    - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_mn/namelist_mn.constants-20210917
   namelist_ref:
     - /project/def-allen/$USER/GEOTRACES/NEMO-3.6-code/NEMOGCM/CONFIG/ANHA12_Mn/EXP00/namelist_ref
 
@@ -76,12 +76,12 @@ output:
   separate XIOS server: True
   XIOS servers: 1
 
-#vcs revisions:
-#  hg:
-#    - /project/def-allen/$USER/GEOTRACES/NEMO-3.6-code/
-#    - /project/def-allen/$USER/GEOTRACES/XIOS/
-#    - /project/def-allen/$USER/GEOTRACES/XIOS-ARCH/
-#    - /project/def-allen/$USER/GEOTRACES/NEMO-Cmd/
+vcs revisions:
+  git:
+    - /project/def-allen/$USER/GEOTRACES/NEMO-3.6-code/
+    - /project/def-allen/$USER/GEOTRACES/caa_runs/
+    - /project/def-allen/$USER/GEOTRACES/XIOS-ARCH/
+    - /project/def-allen/$USER/GEOTRACES/NEMO-Cmd/
 
 modules to load:
   - netcdf-fortran-mpi/4.4.4
