@@ -24,7 +24,7 @@ forcing:
   river_input.nc:
       link to: /project/def-allen/$USER/GEOTRACES/data/runoff/river-forcing-base-20201125.nc
   eros_rate.nc:
-      link to: /project/def-allen/$USER/GEOTRACES/data/sources/erosion_rate-20210310.nc
+      link to: /project/def-allen/$USER/GEOTRACES/data/sources/erosion_rate-20211004.nc
   ice_sediment.nc:
       link to: /project/def-allen/$USER/GEOTRACES/data/sources/ice_sediment-20210722.nc
   Mn_ini.nc:
@@ -33,6 +33,8 @@ forcing:
       link to: /project/def-allen/$USER/GEOTRACES/data/sources/atmosphere/
   ice_fields:
       link to: /project/def-allen/$USER/GEOTRACES/data/sources/ice/
+  bio_forcing:
+      link to: /project/def-allen/$USER/GEOTRACES/data/sources/bio/
   reduction_forcing:
       link to: /project/def-allen/$USER/GEOTRACES/data/sources/reduction/
   euphotic.nc:
@@ -43,8 +45,8 @@ forcing:
       link to: /project/def-allen/$USER/GEOTRACES/data/meshmask/ANHA12_mesh1.nc
 
 restart:
-  restart.nc: /scratch/brogalla/reference_spin-up1_20210917/ANHA12_EXH006_00175200_restart_trc.nc
-  restart_trc.nc: /scratch/brogalla/reference_spin-up1_20210917/ANHA12_EXH006_00175200_restart_trc.nc
+  restart.nc: /scratch/brogalla/ANHA12_bio-spin-up1_20211022/ANHA12_EXH006_00175200_restart_trc.nc
+  restart_trc.nc: /scratch/brogalla/ANHA12_bio-spin-up1_20211022/ANHA12_EXH006_00175200_restart_trc.nc
 
 namelists:
   namelist_cfg:
@@ -62,9 +64,9 @@ namelists:
     - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_top_cfg/namelist_top_cfg.general-restart
     - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_top_cfg/namelist_top_cfg.mn
   namelist_mn:
-    - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_mn/namelist_mn.switches-bio-20210604
-    - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_mn/namelist_mn.forcing-20210811
-    - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_mn/namelist_mn.constants-20210917
+    - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_mn/namelist_mn.switches-bio-20211005
+    - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_mn/namelist_mn.forcing-20210924
+    - /project/def-allen/$USER/GEOTRACES/caa_runs/ANHA12/namelists/namelist_mn/namelist_mn.constants-20210924
   namelist_ref:
     - /project/def-allen/$USER/GEOTRACES/NEMO-3.6-code/NEMOGCM/CONFIG/ANHA12_Mn/EXP00/namelist_ref
 

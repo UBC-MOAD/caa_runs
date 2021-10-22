@@ -24,7 +24,7 @@ forcing:
   river_input.nc:
       link to: /project/def-allen/$USER/GEOTRACES/data/runoff/river-forcing-base-20201125.nc
   eros_rate.nc:
-      link to: /project/def-allen/$USER/GEOTRACES/data/sources/erosion_rate-20210310.nc
+      link to: /project/def-allen/$USER/GEOTRACES/data/sources/erosion_rate-20211004.nc
   ice_sediment.nc:
       link to: /project/def-allen/$USER/GEOTRACES/data/sources/ice_sediment-20210722.nc
   Mn_ini.nc:
@@ -45,8 +45,8 @@ forcing:
       link to: /project/def-allen/$USER/GEOTRACES/data/meshmask/ANHA12_mesh1.nc
 
 restart:
-  restart.nc: /scratch/brogalla/bio-test_spin-up0/ANHA12_EXH006_00175200_restart_trc.nc
-  restart_trc.nc: /scratch/brogalla/bio-test_spin-up0/ANHA12_EXH006_00175200_restart_trc.nc
+  restart.nc: /scratch/brogalla/ANHA12_bio-spin-up0_20211022/ANHA12_EXH006_00175200_restart_trc.nc
+  restart_trc.nc: /scratch/brogalla/ANHA12_bio-spin-up0_20211022/ANHA12_EXH006_00175200_restart_trc.nc
 
 namelists:
   namelist_cfg:
